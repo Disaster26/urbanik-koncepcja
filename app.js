@@ -53,6 +53,8 @@
   // aktywna pozycja menu = bieżąca sekcja
   var linki=[].slice.call(menu.querySelectorAll('a[href^="#"]'));
   function ustaw(href){linki.forEach(function(a){if(a.getAttribute('href')===href)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
+  var wybrana=null;
+  linki.forEach(function(a){a.addEventListener('click',function(){wybrana=a.getAttribute('href')})});
   var mapa={start:'#top',firma:'#firma',auta:'#auta',kontakt:'#kontakt'};
   var hero=d.querySelector('.hero');hero.id='start';
   if('IntersectionObserver' in window){
@@ -61,7 +63,8 @@
         if(w.target.id==='uslugi'){
           var x=karty.scrollLeft,kk=[].slice.call(karty.children),best=kk[0],bd=1e9;
           if(karty.scrollWidth>karty.clientWidth+4){kk.forEach(function(k){var dd=Math.abs(k.offsetLeft-karty.offsetLeft-x-20);if(dd<bd){bd=dd;best=k}})}
-          ustaw(best.id==='auta-karta'?'#auta':'#'+best.id);
+          if(karty.scrollWidth>karty.clientWidth+4)ustaw(best.id==='auta-karta'?'#auta':'#'+best.id);
+          else ustaw(wybrana==='#magazyny'||wybrana==='#hurtownia'?wybrana:'#hurtownia');
         } else ustaw(mapa[w.target.id]);
       });
     },{rootMargin:'-45% 0px -50% 0px'});
