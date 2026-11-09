@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>URBANIK Rymanów - hurtownia spożywcza, wynajem magazynów, zakład odzieżowy, import aut z USA</title>
-<meta name="description" content="Koncepcja nowej strony firmy URBANIK z Rymanowa: hurtownia artykułów spożywczych, wynajem powierzchni magazynowej z placem manewrowym, zakład odzieżowy i import pojazdów z USA. Od 1992 roku.">
+<title>URBANIK Rymanów - hurtownia spożywcza, wynajem magazynów, import aut z USA</title>
+<meta name="description" content="Koncepcja nowej strony firmy URBANIK z Rymanowa: hurtownia artykułów spożywczych, wynajem powierzchni magazynowej z placem manewrowym i import aut z USA (AmericanToys). Od 1992 roku.">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg transform='translate(6 4)'%3E%3Crect x='4' y='12' width='40' height='44' rx='5' fill='%23012FFF' transform='rotate(36 4 56)'/%3E%3Crect x='4' y='12' width='40' height='44' rx='5' fill='%23FFC215' transform='rotate(24 4 56)'/%3E%3Crect x='4' y='12' width='40' height='44' rx='5' fill='%23012FFF' transform='rotate(12 4 56)'/%3E%3Crect x='4' y='12' width='40' height='44' rx='5' fill='%23FFC215'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -2 60 60'%3E%3Crect width='34' height='40' rx='5' fill='%23012FFF' transform='rotate(-30 34 40)'/%3E%3Crect width='34' height='40' rx='5' fill='%23FFC215' stroke='%23fff' stroke-width='2' transform='rotate(-15 34 40)'/%3E%3Crect width='34' height='40' rx='5' fill='%23012FFF' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hurtownia.webp">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-900.webp" media="(max-width: 980px)">
+<link rel="preload" as="image" href="img/hero-1920.webp" media="(min-width: 981px)">
 <link rel="stylesheet" href="style.css">
 <style>
 .wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
@@ -37,60 +38,98 @@
     <symbol id="i-lewo" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-prawo" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2V2.5h-2.8C11.1 2.5 10.5 4.7 10.5 6.3v2.2H8V12h2.5v9.5H14V12h2.7l.4-3.5z" fill="currentColor"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-kosz" viewBox="0 0 24 24"><path d="M3 5h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20" r="1.5" fill="currentColor"/><circle cx="17" cy="20" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-hala" viewBox="0 0 24 24"><path d="M2 10l10-6 10 6v10H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 20v-7h12v7M6 16h12" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-auto" viewBox="0 0 24 24"><path d="M4 16v-3.5L6 7.5A2 2 0 0 1 7.9 6h8.2A2 2 0 0 1 18 7.5l2 5V16a1 1 0 0 1-1 1h-1.5M6.5 17H5a1 1 0 0 1-1-1M4.5 12.5h15M9.5 17h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="17" r="1.8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="17" r="1.8" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <!-- wachlarz z logo: trzy arkusze = trzy usługi; w-N podświetla arkusz danej usługi -->
+    <symbol id="w-all" viewBox="-18.6 -2.0 63.0 63.0"><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5" transform="rotate(-34 34 40)"/><rect width="34" height="40" rx="5" fill="#FFC215" stroke="#fff" stroke-width="2.5" transform="rotate(-17 34 40)"/><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5"/></symbol>
+    <symbol id="w-1" viewBox="-18.6 -2.0 63.0 63.0"><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5" transform="rotate(-34 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-17 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5"/></symbol>
+    <symbol id="w-2" viewBox="-18.6 -2.0 63.0 63.0"><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-34 34 40)"/><rect width="34" height="40" rx="5" fill="#FFC215" stroke="#fff" stroke-width="2.5" transform="rotate(-17 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5"/></symbol>
+    <symbol id="w-3" viewBox="-18.6 -2.0 63.0 63.0"><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-34 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-17 34 40)"/><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5"/></symbol>
   </defs>
 </svg>
 
 <header class="top" id="top">
-  <div class="wrap top-in">
-    <a class="logo" href="#top" aria-label="URBANIK Rymanów - strona główna">
-      <img src="img/logo.webp" width="864" height="272" alt="URBANIK Rymanów, rok założenia 1992">
-    </a>
-    <nav class="menu" id="menu" aria-label="Menu główne">
-      <a href="#hurtownia" data-k="1">Hurtownia</a>
-      <a href="#magazyny" data-k="2">Magazyny</a>
-      <a href="#szwalnia" data-k="3">Zakład odzieżowy</a>
-      <a href="#auta" data-k="4">Auta z USA</a>
-      <a href="#kontakt">Kontakt</a>
-      <a class="menu-tel" href="tel:+48500830800"><svg><use href="#i-tel"/></svg>500 830 800</a>
-      <a class="menu-tel2" href="tel:+48134355092">tel. 13 43 55 092</a>
-    </nav>
-    <a class="tel-btn" href="tel:+48500830800" aria-label="Zadzwoń: 500 830 800"><svg><use href="#i-tel"/></svg><span>500 830 800</span></a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <div class="top-karta">
+    <div class="top-pasek">
+      <span><svg><use href="#i-pin"/></svg>ul. Marii Konopnickiej 7, 38-480 Rymanów</span>
+      <span><svg><use href="#i-zegar"/></svg>pn-pt 7:00-15:00, sob. 7:00-12:00</span>
+      <a href="tel:+48500830800"><svg><use href="#i-tel"/></svg>500 830 800</a>
+      <a href="tel:+48134355092"><svg><use href="#i-tel"/></svg>13 43 55 092</a>
+      <a class="top-fb" href="https://www.facebook.com/Urbanik-Ryman%C3%B3w-1663018073754406" target="_blank" rel="noopener" aria-label="Urbanik Rymanów na Facebooku"><svg><use href="#i-fb"/></svg></a>
+    </div>
+    <div class="top-in">
+      <a class="logo" href="#top" aria-label="URBANIK Rymanów - strona główna">
+        <img src="img/logo.webp" width="864" height="272" alt="URBANIK Rymanów, rok założenia 1992">
+      </a>
+      <nav class="menu" id="menu" aria-label="Menu główne">
+        <a href="#top" aria-current="page">Strona główna</a>
+        <a href="#hurtownia">Hurtownia</a>
+        <a href="#magazyny">Magazyny</a>
+        <a href="#auta">Auta z USA</a>
+        <a href="#firma">O firmie</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="menu-tel" href="tel:+48500830800"><svg><use href="#i-tel"/></svg>500 830 800</a>
+        <a class="menu-tel2" href="tel:+48134355092">tel. 13 43 55 092</a>
+      </nav>
+      <a class="btn btn-nieb top-cta" href="#kontakt"><svg><use href="#i-mail"/></svg>Napisz do nas</a>
+      <a class="tel-btn" href="tel:+48500830800" aria-label="Zadzwoń: 500 830 800"><svg><use href="#i-tel"/></svg></a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
 <main>
   <section class="hero" aria-labelledby="h1">
-    <div class="hero-txt">
-      <div class="hero-in">
-        <h1 id="h1">Jeden adres w&nbsp;Rymanowie, cztery usługi</h1>
-        <p class="hero-lead">Hurtownia artykułów spożywczych, wynajem magazynów, zakład odzieżowy i&nbsp;import aut z&nbsp;USA. Działamy nieprzerwanie od 1992 roku.</p>
-        <div class="hero-cta">
-          <a class="btn btn-zolty" href="#kontakt">Napisz do nas <svg><use href="#i-strz"/></svg></a>
-          <p class="hero-godz"><svg><use href="#i-zegar"/></svg><span>pn-pt 7:00-15:00, sob. 7:00-12:00<br>ul. Marii Konopnickiej 7</span></p>
-        </div>
-      </div>
-      <svg class="hero-wachlarz" viewBox="0 0 320 300" aria-hidden="true">
-        <g fill="none" stroke-width="7">
-          <rect x="20" y="70" width="170" height="200" rx="18" stroke="#012FFF" transform="rotate(36 20 270)"/>
-          <rect x="20" y="70" width="170" height="200" rx="18" stroke="#FFC215" transform="rotate(24 20 270)"/>
-          <rect x="20" y="70" width="170" height="200" rx="18" stroke="#012FFF" transform="rotate(12 20 270)"/>
-          <rect x="20" y="70" width="170" height="200" rx="18" stroke="#FFC215"/>
-        </g>
-      </svg>
-    </div>
     <div class="hero-foto">
-      <a class="kafel" href="#hurtownia"><img src="img/hurtownia.webp" width="400" height="400" alt="Regały z napojami i artykułami spożywczymi w hurtowni" fetchpriority="high"><span><i class="kr k1"></i>Hurtownia</span></a>
-      <a class="kafel" href="#magazyny"><img src="img/magazyn.webp" width="400" height="400" alt="Wózek widłowy w magazynie"><span><i class="kr k2"></i>Magazyny</span></a>
-      <a class="kafel" href="#szwalnia"><img src="img/zaklad.webp" width="400" height="400" alt="Stopka maszyny do szycia na granatowym materiale"><span><i class="kr k3"></i>Zakład odzieżowy</span></a>
-      <a class="kafel" href="#auta"><img src="img/auto.webp" width="400" height="400" alt="Rząd samochodów sportowych na mokrym placu"><span><i class="kr k4"></i>Auta z USA</span></a>
+      <picture>
+        <source media="(min-width: 981px)" srcset="img/hero-1920.webp">
+        <img src="img/hero-900.webp" width="900" height="744" alt="Czarny Jeep Grand Cherokee sprowadzony z USA na jesiennych liściach" fetchpriority="high">
+      </picture>
+      <svg class="hero-pasy" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="58,100 66,100 92,0 84,0" fill="#012FFF"/>
+        <polygon points="67.5,100 72.5,100 98.5,0 93.5,0" fill="#FFC215"/>
+        <polygon points="74,100 76.5,100 102.5,0 100,0" fill="#012FFF"/>
+      </svg>
+      <div class="hero-txt">
+        <h1 id="h1">Hurtownia, magazyny i&nbsp;auta z&nbsp;USA w&nbsp;Rymanowie</h1>
+        <p class="hero-lead">URBANIK działa nieprzerwanie od 1992 roku. Wszystko pod jednym adresem: ul. Marii Konopnickiej 7.</p>
+      </div>
+    </div>
+    <div class="hero-bar">
+      <a class="hb" href="#hurtownia"><svg class="wach" aria-hidden="true"><use href="#w-1"/></svg><span><b>Hurtownia</b><small>artykuły spożywcze</small></span></a>
+      <a class="hb" href="#magazyny"><svg class="wach" aria-hidden="true"><use href="#w-2"/></svg><span><b>Magazyny</b><small>i plac manewrowy</small></span></a>
+      <a class="hb" href="#auta"><svg class="wach" aria-hidden="true"><use href="#w-3"/></svg><span><b>Auta z USA</b><small>import i auta na miejscu</small></span></a>
+      <a class="btn btn-zolty hb-cta" href="#kontakt">Zapytaj <svg><use href="#i-strz"/></svg></a>
+    </div>
+  </section>
+
+  <section class="sek" id="firma" aria-labelledby="h-firma">
+    <div class="wrap firma">
+      <div class="firma-txt">
+        <h2 id="h-firma">Od 1992 roku pod jednym adresem w&nbsp;Rymanowie</h2>
+        <p class="lead">Istniejemy i&nbsp;działamy nieprzerwanie od 1992 roku. Przy ul. Marii Konopnickiej 7 prowadzimy hurtownię artykułów spożywczych, wynajmujemy powierzchnię magazynową, a&nbsp;pod szyldem AmericanToys sprowadzamy auta z&nbsp;USA.</p>
+        <ul class="cechy">
+          <li><span class="cecha-ik"><svg><use href="#i-kosz"/></svg></span><div><h3>Hurtownia artykułów spożywczych</h3><p>Kilkaset produktów w asortymencie, na miejscu w godzinach otwarcia.</p></div></li>
+          <li><span class="cecha-ik"><svg><use href="#i-hala"/></svg></span><div><h3>Magazyny i plac manewrowy</h3><p>Powierzchnia magazynowa na wynajem, z placem do manewrów.</p></div></li>
+          <li><span class="cecha-ik"><svg><use href="#i-auto"/></svg></span><div><h3>Auta z USA - AmericanToys</h3><p>Odbiór, transport i formalności, a także auta już sprowadzone, do obejrzenia w Rymanowie.</p></div></li>
+        </ul>
+      </div>
+      <div class="kolaz">
+        <img class="kolaz-a" src="img/cherokee.webp" width="1000" height="750" loading="lazy" alt="Jeep Cherokee sprowadzony z USA na placu">
+        <img class="kolaz-b" src="img/budynek.webp" width="410" height="593" loading="lazy" alt="Wejście do budynku z szyldami Hurtownia spożywcza URBANIK i Samochody z USA">
+        <span class="pigulka p1"><svg><use href="#i-ok"/></svg>Od 1992 roku</span>
+        <span class="pigulka p2"><svg><use href="#i-ok"/></svg>Hurtownia i auta z USA pod jednym dachem</span>
+        <span class="pigulka p3"><svg><use href="#i-ok"/></svg>ul. Marii Konopnickiej 7</span>
+      </div>
     </div>
   </section>
 
   <section class="sek sek-jasna" id="uslugi" aria-labelledby="h-usl">
     <div class="wrap">
       <div class="sek-glowa">
-        <h2 id="h-usl"><svg class="wach" viewBox="0 0 64 64" aria-hidden="true"><use href="#w-all"/></svg>Czym się zajmujemy</h2>
+        <h2 id="h-usl">Czym się zajmujemy</h2>
         <div class="gal-strz">
           <button class="okr" data-kar="-1" aria-label="Poprzednia usługa"><svg><use href="#i-lewo"/></svg></button>
           <button class="okr" data-kar="1" aria-label="Następna usługa"><svg><use href="#i-prawo"/></svg></button>
@@ -99,92 +138,106 @@
     </div>
     <div class="karty" id="karty" tabindex="0" aria-label="Usługi, przesuń w bok">
       <article class="karta" id="hurtownia">
-        <svg class="wach wach-k" viewBox="0 0 64 64" aria-hidden="true"><use href="#w-1"/></svg>
-        <h3>Hurtownia artykułów spożywczych</h3>
-        <p class="karta-pod">Kilkaset produktów w asortymencie</p>
-        <p>Zaopatrzenie w artykuły spożywcze i napoje. Zapraszamy w godzinach otwarcia albo zadzwoń i zapytaj o konkretny towar.</p>
-        <a class="karta-link" href="#kontakt" data-temat="Hurtownia">Zapytaj o towar <svg><use href="#i-strz"/></svg></a>
+        <div class="karta-foto"><img src="img/hurtownia.webp" width="400" height="400" loading="lazy" alt="Regały z napojami i artykułami spożywczymi w hurtowni"><svg class="wach karta-wach" aria-hidden="true"><use href="#w-1"/></svg></div>
+        <div class="karta-tresc">
+          <p class="karta-kat">Hurtownia</p>
+          <h3>Hurtownia artykułów spożywczych</h3>
+          <p>Kilkaset produktów w asortymencie. Zapraszamy w godzinach otwarcia albo zadzwoń i zapytaj o konkretny towar.</p>
+          <p class="karta-info"><svg><use href="#i-zegar"/></svg>pn-pt 7:00-15:00, sob. 7:00-12:00</p>
+          <a class="btn btn-obrys" href="#kontakt" data-temat="Hurtownia">Zapytaj o towar <svg><use href="#i-strz"/></svg></a>
+        </div>
       </article>
       <article class="karta" id="magazyny">
-        <svg class="wach wach-k" viewBox="0 0 64 64" aria-hidden="true"><use href="#w-2"/></svg>
-        <h3>Wynajem powierzchni magazynowej</h3>
-        <p class="karta-pod">Magazyny i plac manewrowy</p>
-        <p>Wynajmujemy magazyny razem z placem manewrowym w Rymanowie. Napisz, ile miejsca potrzebujesz i od kiedy.</p>
-        <a class="karta-link" href="#kontakt" data-temat="Magazyn">Zapytaj o magazyn <svg><use href="#i-strz"/></svg></a>
+        <div class="karta-foto"><img src="img/magazyn.webp" width="400" height="400" loading="lazy" alt="Wózek widłowy w magazynie"><svg class="wach karta-wach" aria-hidden="true"><use href="#w-2"/></svg></div>
+        <div class="karta-tresc">
+          <p class="karta-kat">Magazyny</p>
+          <h3>Wynajem powierzchni magazynowej</h3>
+          <p>Wynajmujemy magazyny razem z placem manewrowym w Rymanowie. Napisz, ile miejsca potrzebujesz i od kiedy.</p>
+          <p class="karta-info"><svg><use href="#i-pin"/></svg>ul. Marii Konopnickiej 7, Rymanów</p>
+          <a class="btn btn-obrys" href="#kontakt" data-temat="Magazyn">Zapytaj o magazyn <svg><use href="#i-strz"/></svg></a>
+        </div>
       </article>
-      <article class="karta" id="szwalnia">
-        <svg class="wach wach-k" viewBox="0 0 64 64" aria-hidden="true"><use href="#w-3"/></svg>
-        <h3>Zakład odzieżowy</h3>
-        <p class="karta-pod">Szycie na wymiar</p>
-        <p>Szyjemy na wymiar. Opisz, co chcesz uszyć, a odpowiemy z terminem i warunkami.</p>
-        <a class="karta-link" href="#kontakt" data-temat="Zakład odzieżowy">Zapytaj o szycie <svg><use href="#i-strz"/></svg></a>
-      </article>
-      <article class="karta" id="auta">
-        <svg class="wach wach-k" viewBox="0 0 64 64" aria-hidden="true"><use href="#w-4"/></svg>
-        <h3>Import pojazdów z USA</h3>
-        <p class="karta-pod">Odbiór i transport wraz z formalnościami</p>
-        <p>Sprowadzamy samochody ze Stanów: odbiór auta, transport do Polski i formalności po naszej stronie.</p>
-        <a class="karta-link" href="#kontakt" data-temat="Import auta z USA">Zapytaj o auto <svg><use href="#i-strz"/></svg></a>
+      <article class="karta" id="auta-karta">
+        <div class="karta-foto"><img src="img/auto-karta.webp" width="800" height="450" loading="lazy" alt="Granatowy Jeep Commander sprowadzony z USA"><svg class="wach karta-wach" aria-hidden="true"><use href="#w-3"/></svg></div>
+        <div class="karta-tresc">
+          <p class="karta-kat">Auta z USA</p>
+          <h3>Import pojazdów z USA</h3>
+          <p>Odbiór i transport wraz z formalnościami. Auto możesz też wybrać spośród już sprowadzonych do Rymanowa.</p>
+          <p class="karta-info"><svg><use href="#i-auto"/></svg>AmericanToys, americantoys.pl</p>
+          <a class="btn btn-obrys" href="#auta">Zobacz auta <svg><use href="#i-strz"/></svg></a>
+        </div>
       </article>
     </div>
   </section>
 
-  <section class="sek sek-nieb" id="firma" aria-labelledby="h-firma">
-    <svg class="firma-wachlarz" viewBox="0 0 400 400" aria-hidden="true">
-      <g transform="translate(20 0)">
-        <rect x="0" y="70" width="270" height="310" rx="26" fill="none" stroke="#FFC215" stroke-width="14" transform="rotate(36 0 380)"/>
-        <rect x="0" y="70" width="270" height="310" rx="26" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="14" transform="rotate(24 0 380)"/>
-        <rect x="0" y="70" width="270" height="310" rx="26" fill="none" stroke="#FFC215" stroke-width="14" transform="rotate(12 0 380)"/>
-        <rect x="0" y="70" width="270" height="310" rx="26" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="14"/>
-      </g>
-    </svg>
-    <div class="wrap firma-in">
-      <h2 id="h-firma">Nieprzerwanie od 1992 roku</h2>
-      <p class="firma-lead">Rok założenia mamy w&nbsp;logo nie bez powodu. Istniejemy i&nbsp;działamy nieprzerwanie od 1992 roku, a&nbsp;wszystkie cztery usługi prowadzimy z&nbsp;jednego miejsca: ul. Marii Konopnickiej 7 w&nbsp;Rymanowie.</p>
-      <dl class="firma-dane">
-        <div><dt>Firma</dt><dd>Firma URBANIK Krzysztof Urbanik</dd></div>
-        <div><dt>NIP</dt><dd>684-208-11-37</dd></div>
-        <div><dt>REGON</dt><dd>180061329</dd></div>
-        <div><dt>Adres</dt><dd>ul. Marii Konopnickiej 7, 38-480 Rymanów</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="sek" id="kontakt" aria-labelledby="h-kontakt">
-    <div class="wrap kont">
-      <div class="kont-dane">
-        <h2 id="h-kontakt"><svg class="wach" viewBox="0 0 64 64" aria-hidden="true"><use href="#w-all"/></svg>Zadzwoń albo napisz</h2>
-        <ul class="kont-lista">
-          <li><svg><use href="#i-tel"/></svg><span><a href="tel:+48500830800">500 830 800</a> <small>komórkowy</small><br><a href="tel:+48134355092">13 43 55 092</a> <small>stacjonarny</small></span></li>
-          <li><svg><use href="#i-mail"/></svg><a href="mailto:urbanik@urbanik.com.pl">urbanik@urbanik.com.pl</a></li>
-          <li><svg><use href="#i-pin"/></svg><span>ul. Marii Konopnickiej 7<br>38-480 Rymanów</span></li>
-          <li><svg><use href="#i-zegar"/></svg><span>poniedziałek - piątek: 7:00 - 15:00<br>sobota: 7:00 - 12:00</span></li>
-          <li><svg><use href="#i-fb"/></svg><a href="https://www.facebook.com/Urbanik-Ryman%C3%B3w-1663018073754406" target="_blank" rel="noopener">Urbanik Rymanów na Facebooku</a></li>
-        </ul>
-        <div class="mapa">
-          <iframe title="Mapa: ul. Marii Konopnickiej 7, Rymanów" src="https://maps.google.com/maps?q=Marii%20Konopnickiej%207%2C%2038-480%20Ryman%C3%B3w&amp;z=15&amp;hl=pl&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section class="sek" id="auta" aria-labelledby="h-auta">
+    <div class="wrap">
+      <div class="sek-glowa">
+        <div>
+          <h2 id="h-auta">Auta sprowadzone z&nbsp;USA</h2>
+          <p class="sek-opis">Weryfikujemy historię, dostarczamy samochód pod dom, zajmujemy się naprawą i&nbsp;dokumentami. Auta już sprowadzone do Rymanowa możesz obejrzeć na miejscu i&nbsp;sprawdzić w&nbsp;jeździe próbnej.</p>
+        </div>
+        <div class="gal-strz gal-strz-zawsze">
+          <button class="okr" data-gal="-1" aria-label="Poprzednie zdjęcie"><svg><use href="#i-lewo"/></svg></button>
+          <button class="okr" data-gal="1" aria-label="Następne zdjęcie"><svg><use href="#i-prawo"/></svg></button>
         </div>
       </div>
-      <form class="form" id="form" novalidate>
-        <h3>Wiadomość do nas</h3>
-        <div class="pola">
-          <label class="cale">Czego dotyczy
-            <select name="temat" id="temat">
-              <option>Hurtownia</option>
-              <option>Magazyn</option>
-              <option>Zakład odzieżowy</option>
-              <option>Import auta z USA</option>
-              <option>Inna sprawa</option>
-            </select>
-          </label>
-          <label>Imię i nazwisko<input name="imie" autocomplete="off"></label>
-          <label>Telefon lub e-mail<input name="kontakt" autocomplete="off"></label>
-          <label class="cale">Wiadomość<textarea name="opis" rows="4"></textarea></label>
-          <label class="cale zgoda"><input type="checkbox" name="zgoda"><span>Zgadzam się na kontakt w sprawie mojej wiadomości. <a href="#top">Polityka prywatności</a></span></label>
+    </div>
+    <div class="gal" id="gal" tabindex="0" aria-label="Zdjęcia aut, przesuń w bok">
+      <figure><img src="img/g5.webp" width="1100" height="619" loading="lazy" alt="Czarny Jeep Grand Cherokee wśród jesiennych drzew"></figure>
+      <figure><img src="img/g1.webp" width="1100" height="619" loading="lazy" alt="Granatowy Jeep Commander na placu"></figure>
+      <figure><img src="img/g4.webp" width="1100" height="619" loading="lazy" alt="Czarny Jeep Cherokee z przodu"></figure>
+      <figure><img src="img/g7.webp" width="1100" height="619" loading="lazy" alt="Jeep Commander z boku"></figure>
+      <figure><img src="img/g3.webp" width="1100" height="619" loading="lazy" alt="Czarny Jeep Cherokee z boku"></figure>
+      <figure><img src="img/g2.webp" width="1100" height="619" loading="lazy" alt="Jeep Commander z tyłu"></figure>
+      <figure><img src="img/g6.webp" width="1100" height="619" loading="lazy" alt="Jeep Cherokee z tyłu"></figure>
+    </div>
+    <div class="wrap auta-cta">
+      <a class="btn btn-nieb" href="https://americantoys.pl/" target="_blank" rel="noopener">Wszystkie auta na americantoys.pl <svg><use href="#i-strz"/></svg></a>
+    </div>
+  </section>
+
+  <section class="sek sek-jasna" id="kontakt" aria-labelledby="h-kontakt">
+    <div class="wrap">
+      <div class="szybki">
+        <h2 id="h-kontakt">Szybki kontakt</h2>
+        <div class="szybki-kol">
+          <div><p>Telefon komórkowy</p><a class="szybki-nr" href="tel:+48500830800">500 830 800</a><a class="btn btn-nieb" href="tel:+48500830800">Zadzwoń <svg><use href="#i-tel"/></svg></a></div>
+          <div><p>Telefon stacjonarny</p><a class="szybki-nr" href="tel:+48134355092">13 43 55 092</a><a class="btn btn-nieb" href="tel:+48134355092">Zadzwoń <svg><use href="#i-tel"/></svg></a></div>
         </div>
-        <button class="btn btn-nieb" type="submit">Wyślij wiadomość <svg><use href="#i-strz"/></svg></button>
-        <p class="form-info" id="formInfo" hidden>To podgląd strony, formularz zacznie wysyłać wiadomości po wdrożeniu.</p>
-      </form>
+        <p class="szybki-dol">Wolisz napisać? <a href="mailto:urbanik@urbanik.com.pl">urbanik@urbanik.com.pl</a> albo formularz poniżej.</p>
+      </div>
+      <div class="kont">
+        <div class="kont-dane">
+          <ul class="kont-lista">
+            <li><svg><use href="#i-pin"/></svg><span>ul. Marii Konopnickiej 7<br>38-480 Rymanów</span></li>
+            <li><svg><use href="#i-zegar"/></svg><span>poniedziałek - piątek: 7:00 - 15:00<br>sobota: 7:00 - 12:00</span></li>
+            <li><svg><use href="#i-fb"/></svg><a href="https://www.facebook.com/Urbanik-Ryman%C3%B3w-1663018073754406" target="_blank" rel="noopener">Urbanik Rymanów na Facebooku</a></li>
+          </ul>
+          <div class="mapa">
+            <iframe title="Mapa: ul. Marii Konopnickiej 7, Rymanów" src="https://maps.google.com/maps?q=Marii%20Konopnickiej%207%2C%2038-480%20Ryman%C3%B3w&amp;z=15&amp;hl=pl&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <form class="form" id="form" novalidate>
+          <h3>Wiadomość do nas</h3>
+          <div class="pola">
+            <label class="cale">Czego dotyczy
+              <select name="temat" id="temat">
+                <option>Hurtownia</option>
+                <option>Magazyn</option>
+                <option>Auto z USA</option>
+                <option>Inna sprawa</option>
+              </select>
+            </label>
+            <label>Imię i nazwisko<input name="imie" autocomplete="off"></label>
+            <label>Telefon lub e-mail<input name="kontakt" autocomplete="off"></label>
+            <label class="cale">Wiadomość<textarea name="opis" rows="4"></textarea></label>
+            <label class="cale zgoda"><input type="checkbox" name="zgoda"><span>Zgadzam się na kontakt w sprawie mojej wiadomości. <a href="#top">Polityka prywatności</a></span></label>
+          </div>
+          <button class="btn btn-nieb" type="submit">Wyślij wiadomość <svg><use href="#i-strz"/></svg></button>
+          <p class="form-info" id="formInfo" hidden>To podgląd strony, formularz zacznie wysyłać wiadomości po wdrożeniu.</p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
@@ -195,18 +248,25 @@
 </div>
 
 <footer class="stopka">
+  <div class="wrap st-uslugi">
+    <a href="#hurtownia"><svg class="wach" aria-hidden="true"><use href="#w-1"/></svg><span><b>Hurtownia</b>artykuły spożywcze</span></a>
+    <a href="#magazyny"><svg class="wach" aria-hidden="true"><use href="#w-2"/></svg><span><b>Magazyny</b>wynajem z placem manewrowym</span></a>
+    <a href="#auta"><svg class="wach" aria-hidden="true"><use href="#w-3"/></svg><span><b>Auta z USA</b>AmericanToys</span></a>
+  </div>
   <div class="wrap stopka-in">
     <div class="st-firma">
-      <img src="img/logo.webp" width="864" height="272" alt="URBANIK Rymanów" loading="lazy">
+      <span class="st-logo"><img src="img/logo.webp" width="864" height="272" alt="URBANIK Rymanów" loading="lazy"></span>
       <p>Firma URBANIK Krzysztof Urbanik<br>ul. Marii Konopnickiej 7, 38-480 Rymanów<br>NIP 684-208-11-37</p>
     </div>
     <nav class="st-kol" aria-label="Na skróty">
+      <b>Menu</b>
       <a href="#hurtownia">Hurtownia</a>
       <a href="#magazyny">Magazyny</a>
-      <a href="#szwalnia">Zakład odzieżowy</a>
       <a href="#auta">Auta z USA</a>
+      <a href="#firma">O firmie</a>
     </nav>
     <div class="st-kol">
+      <b>Kontakt</b>
       <a href="tel:+48500830800">500 830 800</a>
       <a href="tel:+48134355092">13 43 55 092</a>
       <a href="mailto:urbanik@urbanik.com.pl">urbanik@urbanik.com.pl</a>
@@ -218,17 +278,6 @@
     <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=urbanik.com.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
   </div>
 </footer>
-
-<!-- wachlarz z logo: cztery arkusze = cztery usługi; w-N podświetla arkusz danej usługi -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="w-all" viewBox="-20.3 -2.0 68.0 68.0"><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5" transform="rotate(-45 34 40)"/><rect width="34" height="40" rx="5" fill="#FFC215" stroke="#fff" stroke-width="2.5" transform="rotate(-30 34 40)"/><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5" transform="rotate(-15 34 40)"/><rect width="34" height="40" rx="5" fill="#FFC215" stroke="#fff" stroke-width="2.5"/></symbol>
-    <symbol id="w-1" viewBox="-20.3 -2.0 68.0 68.0"><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5" transform="rotate(-45 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-30 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-15 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5"/></symbol>
-    <symbol id="w-2" viewBox="-20.3 -2.0 68.0 68.0"><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-45 34 40)"/><rect width="34" height="40" rx="5" fill="#FFC215" stroke="#fff" stroke-width="2.5" transform="rotate(-30 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-15 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5"/></symbol>
-    <symbol id="w-3" viewBox="-20.3 -2.0 68.0 68.0"><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-45 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-30 34 40)"/><rect width="34" height="40" rx="5" fill="#012FFF" stroke="#fff" stroke-width="2.5" transform="rotate(-15 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5"/></symbol>
-    <symbol id="w-4" viewBox="-20.3 -2.0 68.0 68.0"><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-45 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-30 34 40)"/><rect width="34" height="40" rx="5" fill="#CBD3E6" stroke="#fff" stroke-width="2.5" transform="rotate(-15 34 40)"/><rect width="34" height="40" rx="5" fill="#FFC215" stroke="#fff" stroke-width="2.5"/></symbol>
-  </defs>
-</svg>
 <script src="app.js"></script>
 </body>
 </html>

@@ -12,67 +12,61 @@
   menu.addEventListener('click',function(e){if(e.target.closest('a'))zamknij()});
   d.addEventListener('keydown',function(e){if(e.key==='Escape')zamknij()});
 
-  // aktywna pozycja menu: usługa (karta w widoku) albo kontakt
-  var linki=[].slice.call(menu.querySelectorAll('a[href^="#"]'));
-  function ustaw(id){linki.forEach(function(a){if(id&&a.getAttribute('href')==='#'+id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
-  var karty=d.getElementById('karty'), kartyEl=[].slice.call(karty.querySelectorAll('.karta'));
-  var wybrana=null;
-  function aktywnaKarta(){
-    // na telefonie: karta przewinięta do lewej krawędzi; na komputerze: ostatnio wybrana z menu
-    if(karty.scrollWidth>karty.clientWidth+4){
-      var x=karty.scrollLeft, best=kartyEl[0], bd=1e9;
-      kartyEl.forEach(function(k){var dd=Math.abs(k.offsetLeft-karty.offsetLeft-x-20);if(dd<bd){bd=dd;best=k}});
-      return best.id;
-    }
-    return wybrana;
+  // przewijane rzędy: palec natywnie, mysz przeciąganiem, strzałki
+  function rzad(el,attr){
+    var strz=d.querySelectorAll('['+attr+']');
+    function krok(){var k=el.children[0];return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(el).columnGap||14):300}
+    function stan(){var max=el.scrollWidth-el.clientWidth-2;strz.forEach(function(b){b.disabled=(+b.getAttribute(attr)<0)?el.scrollLeft<=2:el.scrollLeft>=max})}
+    strz.forEach(function(b){b.addEventListener('click',function(){el.scrollBy({left:+b.getAttribute(attr)*krok(),behavior:'smooth'})})});
+    el.addEventListener('scroll',function(){requestAnimationFrame(stan)},{passive:true});
+    addEventListener('resize',stan);stan();
+    var ciag=false,sx=0,sl=0,ruch=0;
+    el.addEventListener('pointerdown',function(e){
+      if(e.pointerType!=='mouse'||el.scrollWidth<=el.clientWidth)return;
+      ciag=true;sx=e.clientX;sl=el.scrollLeft;ruch=0;el.style.scrollSnapType='none';el.style.cursor='grabbing';e.preventDefault();
+    });
+    addEventListener('pointermove',function(e){if(!ciag)return;ruch=e.clientX-sx;el.scrollLeft=sl-ruch});
+    addEventListener('pointerup',function(){
+      if(!ciag)return;ciag=false;el.style.cursor='';
+      var k=krok(),cel=Math.round(el.scrollLeft/k)*k;el.scrollTo({left:cel,behavior:'smooth'});
+      setTimeout(function(){el.style.scrollSnapType=''},400);
+    });
+    el.addEventListener('click',function(e){if(Math.abs(ruch)>6){e.preventDefault();e.stopPropagation();ruch=0}},true);
+    el.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){el.scrollBy({left:krok(),behavior:'smooth'});e.preventDefault()}
+      if(e.key==='ArrowLeft'){el.scrollBy({left:-krok(),behavior:'smooth'});e.preventDefault()}
+    });
+    return el;
   }
-  var widoczna=null;
+  var karty=rzad(d.getElementById('karty'),'data-kar');
+  rzad(d.getElementById('gal'),'data-gal');
+
+  // skok do karty usługi: na telefonie przewiń rząd kart do właściwej
+  function doKarty(id){
+    var k=d.getElementById(id);
+    if(k&&k.parentNode===karty&&karty.scrollWidth>karty.clientWidth+4){
+      setTimeout(function(){karty.scrollTo({left:k.offsetLeft-karty.offsetLeft-20,behavior:'smooth'})},350);
+    }
+  }
+  d.querySelectorAll('a[href="#hurtownia"],a[href="#magazyny"]').forEach(function(a){a.addEventListener('click',function(){doKarty(a.getAttribute('href').slice(1))})});
+
+  // aktywna pozycja menu = bieżąca sekcja
+  var linki=[].slice.call(menu.querySelectorAll('a[href^="#"]'));
+  function ustaw(href){linki.forEach(function(a){if(a.getAttribute('href')===href)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
+  var mapa={start:'#top',firma:'#firma',auta:'#auta',kontakt:'#kontakt'};
+  var hero=d.querySelector('.hero');hero.id='start';
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(wp){
-      wp.forEach(function(w){if(w.isIntersecting){widoczna=w.target.id}});
-      ustaw(widoczna==='uslugi'?aktywnaKarta():(widoczna==='kontakt'?'kontakt':null));
+      wp.forEach(function(w){if(!w.isIntersecting)return;
+        if(w.target.id==='uslugi'){
+          var x=karty.scrollLeft,kk=[].slice.call(karty.children),best=kk[0],bd=1e9;
+          if(karty.scrollWidth>karty.clientWidth+4){kk.forEach(function(k){var dd=Math.abs(k.offsetLeft-karty.offsetLeft-x-20);if(dd<bd){bd=dd;best=k}})}
+          ustaw(best.id==='auta-karta'?'#auta':'#'+best.id);
+        } else ustaw(mapa[w.target.id]);
+      });
     },{rootMargin:'-45% 0px -50% 0px'});
-    ['uslugi','firma','kontakt'].forEach(function(id){io.observe(d.getElementById(id))});
-    var hero=d.querySelector('.hero'); io.observe(hero); hero.id=hero.id||'start';
+    ['start','firma','uslugi','auta','kontakt'].forEach(function(id){io.observe(d.getElementById(id))});
   }
-  linki.forEach(function(a){a.addEventListener('click',function(){
-    var id=a.getAttribute('href').slice(1);
-    if(a.dataset.k){wybrana=id;var k=d.getElementById(id);
-      if(karty.scrollWidth>karty.clientWidth+4){karty.scrollTo({left:k.offsetLeft-karty.offsetLeft-20,behavior:'smooth'})}}
-  })});
-  d.querySelectorAll('.kafel').forEach(function(a){a.addEventListener('click',function(){
-    var id=a.getAttribute('href').slice(1),k=d.getElementById(id);wybrana=id;
-    if(karty.scrollWidth>karty.clientWidth+4){setTimeout(function(){karty.scrollTo({left:k.offsetLeft-karty.offsetLeft-20,behavior:'smooth'})},350)}
-  })});
-
-  // karty: palec natywnie, mysz przeciąganiem, strzałki
-  var strz=d.querySelectorAll('[data-kar]');
-  function krok(){var k=kartyEl[0];return k?k.getBoundingClientRect().width+14:300}
-  function stanStrz(){
-    var max=karty.scrollWidth-karty.clientWidth-2;
-    strz.forEach(function(b){b.disabled=(+b.dataset.kar<0)?karty.scrollLeft<=2:karty.scrollLeft>=max});
-    if(widoczna==='uslugi')ustaw(aktywnaKarta());
-  }
-  strz.forEach(function(b){b.addEventListener('click',function(){karty.scrollBy({left:+b.dataset.kar*krok(),behavior:'smooth'})})});
-  karty.addEventListener('scroll',function(){window.requestAnimationFrame(stanStrz)},{passive:true});
-  window.addEventListener('resize',stanStrz);stanStrz();
-  var ciag=false,sx=0,sl=0,ruch=0;
-  karty.addEventListener('pointerdown',function(e){
-    if(e.pointerType!=='mouse'||karty.scrollWidth<=karty.clientWidth)return;
-    ciag=true;sx=e.clientX;sl=karty.scrollLeft;ruch=0;karty.style.scrollSnapType='none';karty.style.cursor='grabbing';
-  });
-  window.addEventListener('pointermove',function(e){if(!ciag)return;ruch=e.clientX-sx;karty.scrollLeft=sl-ruch});
-  window.addEventListener('pointerup',function(){
-    if(!ciag)return;ciag=false;karty.style.cursor='';
-    var k=krok(),cel=Math.round(karty.scrollLeft/k)*k;
-    karty.scrollTo({left:cel,behavior:'smooth'});
-    setTimeout(function(){karty.style.scrollSnapType=''},400);
-  });
-  karty.addEventListener('click',function(e){if(Math.abs(ruch)>6){e.preventDefault();e.stopPropagation();ruch=0}},true);
-  karty.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'){karty.scrollBy({left:krok(),behavior:'smooth'});e.preventDefault()}
-    if(e.key==='ArrowLeft'){karty.scrollBy({left:-krok(),behavior:'smooth'});e.preventDefault()}
-  });
 
   // "Zapytaj o..." ustawia temat wiadomości
   var temat=d.getElementById('temat');
@@ -82,11 +76,11 @@
   d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('formInfo').hidden=false});
 
   // dolny pasek na telefonie dopiero po przewinięciu za pierwszy ekran
-  var mob=d.getElementById('mob'), cta=d.querySelector('.hero-cta'), kont=d.getElementById('kontakt');
+  var mob=d.getElementById('mob'), bar=d.querySelector('.hero-bar'), kont=d.getElementById('kontakt');
   if('IntersectionObserver' in window){
-    var zaCta=false,wKont=false;
-    function pokaz(){var on=zaCta&&!wKont;mob.classList.toggle('widac',on);mob.setAttribute('aria-hidden',String(!on));mob.querySelectorAll('a').forEach(function(a){a.tabIndex=on?0:-1})}
-    new IntersectionObserver(function(w){zaCta=!w[0].isIntersecting&&w[0].boundingClientRect.top<0;pokaz()}).observe(cta);
-    new IntersectionObserver(function(w){wKont=w[0].isIntersecting;pokaz()},{rootMargin:'0px 0px -30% 0px'}).observe(kont);
+    var za=false,wK=false;
+    function pokaz(){var on=za&&!wK;mob.classList.toggle('widac',on);mob.setAttribute('aria-hidden',String(!on));mob.querySelectorAll('a').forEach(function(a){a.tabIndex=on?0:-1})}
+    new IntersectionObserver(function(w){za=!w[0].isIntersecting&&w[0].boundingClientRect.top<0;pokaz()}).observe(bar);
+    new IntersectionObserver(function(w){wK=w[0].isIntersecting;pokaz()},{rootMargin:'0px 0px -30% 0px'}).observe(kont);
   }
 })();
