@@ -192,7 +192,7 @@ h3{font-weight:700;font-size:21px;line-height:1.2}
 
   .sek{padding:64px 0}
   .kont{grid-template-columns:minmax(0,1fr);gap:36px}
-  .firma-wachlarz{width:300px;right:-110px;bottom:-110px;opacity:.6}
+  .firma-wachlarz{width:240px;right:-120px;top:-60px;bottom:auto;opacity:.45}
 }
 @media (max-width:760px){
   .sek-glowa{margin-bottom:24px}
